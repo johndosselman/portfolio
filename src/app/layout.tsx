@@ -1,29 +1,32 @@
 import "./globals.css";
-import { Cousine, Nunito_Sans, Red_Hat_Display, Roboto, Tenor_Sans } from "next/font/google";
+import { Cousine, Nunito_Sans, Roboto } from "next/font/google";
 
 const roboto = Roboto({
   subsets: ["latin"],
   weight: ["300"],
   variable: "--font-roboto",
-  display: "swap",
+  display: "block",
 });
 
 const robotoLight = Roboto({
   subsets: ["latin"],
   weight: ["100"],
   variable: "--font-roboto-light",
+  display: "block",
 });
 
 const nunito = Nunito_Sans({
   subsets: ["latin"],
   weight: ["300"],
   variable: "--font-nunito",
+  display: "block",
 });
 
 const cousine = Cousine({
   subsets: ["latin"],
   weight: ["400"],
   variable: "--font-cousine",
+  display: "block",
 });
 
 export const metadata = {
@@ -39,9 +42,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${robotoLight.variable} ${roboto.variable} ${nunito.variable} ${cousine.variable}`}
+      className={`${robotoLight.variable} ${roboto.variable} ${nunito.variable} ${cousine.variable} scroll-smooth`}
     >
-      <body className={roboto.className}>{children}</body>
+      <body className={nunito.className}>{children}</body>
     </html>
   );
 }

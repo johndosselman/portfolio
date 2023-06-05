@@ -10,20 +10,19 @@ module.exports = {
   ],
   theme: {
     extend: {
-      
       fontFamily: {
-        "roboto": "var(--roboto)",
+        roboto: "var(--roboto)",
         "roboto-light": "var(--font-roboto-light)",
-        "nunito": "var(--font-nunito)",
-        "cousine": "var(--font-cousine)"
+        nunito: "var(--font-nunito)",
+        cousine: "var(--font-cousine)",
       },
       height: {
         screen: ["100vh", "100dvh"],
+        "screen-60": ["60vh", "60dvh"],
       },
       width: {
         large: ["1000px"],
       },
-      
     },
   },
   plugins: [],
