@@ -12,6 +12,8 @@ module.exports = {
     extend: {
       fontFamily: {
         bitter: "var(--font-bitter)",
+        libreFranklin: "var(--libreFranklin)",
+        work: "var(--work)",
       },
       height: {
         screen: ["100vh", "100dvh"],
