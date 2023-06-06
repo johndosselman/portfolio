@@ -1,31 +1,10 @@
 import "./globals.css";
-import { Cousine, Nunito_Sans, Roboto } from "next/font/google";
+import { Bitter } from "next/font/google";
 
-const roboto = Roboto({
-  subsets: ["latin"],
-  weight: ["300"],
-  variable: "--font-roboto",
-  display: "block",
-});
-
-const robotoLight = Roboto({
-  subsets: ["latin"],
-  weight: ["100"],
-  variable: "--font-roboto-light",
-  display: "block",
-});
-
-const nunito = Nunito_Sans({
-  subsets: ["latin"],
-  weight: ["300"],
-  variable: "--font-nunito",
-  display: "block",
-});
-
-const cousine = Cousine({
+const bitter = Bitter({
   subsets: ["latin"],
   weight: ["400"],
-  variable: "--font-cousine",
+  variable: "--font-bitter",
   display: "block",
 });
 
@@ -40,11 +19,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="en"
-      className={`${robotoLight.variable} ${roboto.variable} ${nunito.variable} ${cousine.variable} scroll-smooth`}
-    >
-      <body className={nunito.className}>{children}</body>
+    <html lang="en" className={`${bitter.variable} scroll-smooth`}>
+      <body>{children}</body>
     </html>
   );
 }

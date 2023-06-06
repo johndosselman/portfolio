@@ -31,15 +31,36 @@ export default function Navbar() {
         }`}
       >
         <div className="flex items-center justify-between">
-          <a href={"#home"} className="">
-            J / D
+          <a href={"#about"} className="">
+            John Dosselman
           </a>
           <button
-            className="md:hidden bg-red-500 p-4"
+            className="md:hidden relative h-6 w-8 m-2"
             onClick={() => setExpanded(!expanded)}
             id="buttonMenu"
             title="menu"
-          ></button>
+          >
+            <div
+              className={`top-0 absolute px-4 py-px bg-stone-200 rounded-sm transition ${
+                expanded ? "opacity-0 translate-x-2" : ""
+              }`}
+            />
+            <div
+              className={`top-1/2 absolute px-4 py-px bg-stone-200 rounded-sm transition -translate-y-1/2 ${
+                expanded ? "rotate-45" : ""
+              }`}
+            />
+            <div
+              className={`top-1/2 absolute px-4 py-px bg-stone-200 rounded-sm transition -translate-y-1/2 ${
+                expanded ? "-rotate-45" : ""
+              }`}
+            />
+            <div
+              className={`bottom-0 absolute px-4 py-px bg-stone-200 rounded-sm transition ${
+                expanded ? "opacity-0 -translate-x-2" : ""
+              }`}
+            />
+          </button>
           <ul
             className={`hidden md:flex md:gap-5 items-center
             }`}
@@ -53,14 +74,12 @@ export default function Navbar() {
             <li>
               <a href={"#contact"}>Contact</a>
             </li>
-            <li>
-              <button
-                className={"p-3 bg-purple-500 rounded block"}
-                id="buttonToggleDark"
-                title="toggleDark"
-              ></button>
-            </li>
           </ul>
+          <button
+            className={"hidden p-3 bg-purple-500 rounded md:block "}
+            id="buttonToggleDark"
+            title="toggleDark"
+          ></button>
         </div>
         <div
           className={`transition-all ease-in-out duration-150 md:hidden ${

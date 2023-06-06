@@ -11,10 +11,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        roboto: "var(--roboto)",
-        "roboto-light": "var(--font-roboto-light)",
-        nunito: "var(--font-nunito)",
-        cousine: "var(--font-cousine)",
+        bitter: "var(--font-bitter)",
       },
       height: {
         screen: ["100vh", "100dvh"],
@@ -22,6 +19,9 @@ module.exports = {
       },
       width: {
         large: ["1000px"],
+      },
+      ringWidth: {
+        3: ["3px"],
       },
     },
   },
