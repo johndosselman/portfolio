@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: "class",
   future: {
     hoverOnlyWhenSupported: true,
   },
@@ -21,6 +22,13 @@ module.exports = {
       },
       width: {
         large: ["1000px"],
+      },
+      maxWidth: {
+        90: ["90%"],
+        80: ["80%"],
+        70: ["70%"],
+        60: ["60%"],
+        65: ["65%"],
       },
       ringWidth: {
         3: ["3px"],

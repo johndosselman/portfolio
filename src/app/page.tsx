@@ -1,5 +1,4 @@
 "use client";
-import Navbar from "@/components/navbar/navbar";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -7,10 +6,7 @@ import { useEffect, useState } from "react";
 export default function Home() {
   const [scrolled, setScrolled] = useState(false);
   const [expanded, setExpanded] = useState(false);
-  const [darkMode, setDarkMode] = useState(
-    window.matchMedia &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches
-  );
+  const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,14 +21,15 @@ export default function Home() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
   return (
-    <div className={`font-work`}>
+    <div className={`font-work `}>
       <nav className={`fixed w-full z-50  ${expanded ? "h-screen" : ""}`}>
         <div
           className={`p-5 flex flex-col shadow-md transition duration-200 border-b ease-in-out ${
             darkMode
-              ? "bg-stone-800 border-stone-900"
-              : "bg-stone-200 border-stone-300"
+              ? "bg-neutral-900 border-neutral-950"
+              : "bg-stone-100 border-stone-200"
           }
         }`}
         >
@@ -72,13 +69,18 @@ export default function Home() {
                 } ${darkMode ? "bg-stone-200" : "bg-stone-800"}`}
               />
             </button>
-            <ul
-              className={`hidden md:flex md:gap-20 items-center transition-colors duration-200 ease-in-out ${
-                darkMode ? "text-stone-200" : "text-stone-900"
-              }`}
-            >
+            <ul className={`hidden md:flex md:gap-20 items-center`}>
               <li>
-                <a href={"#about"}>About</a>
+                <a
+                  href={"#about"}
+                  className={`transition-colors px-5 py-3 rounded-md duration-200 ease-in-out ${
+                    darkMode
+                      ? "text-stone-200 hover:bg-stone-900/50 hover:text-white"
+                      : "text-stone-900 hover:bg-stone-300/50 hover:text-black"
+                  }`}
+                >
+                  About
+                </a>
               </li>
               <li>
                 <a href={"#projects"}>Projects</a>
@@ -88,9 +90,11 @@ export default function Home() {
               </li>
             </ul>
             <button
-              className={"hidden p-3 bg-purple-500 rounded md:block "}
+              className={`hidden h-6 w-6 rounded-full md:block ${
+                darkMode ? "bg-stone-200" : "bg-stone-800"
+              }`}
               id="buttonToggleDark"
-              title="toggleDark"
+              title="dark mode toggle"
               onClick={() => setDarkMode(!darkMode)}
             ></button>
           </div>
@@ -126,12 +130,12 @@ export default function Home() {
                 </li>
                 <li>
                   <button
-                    className={"p-3 bg-purple-500 rounded"}
-                    id="buttonToggleDarkMobile"
-                    title="toggleDarkMobile"
-                    onClick={() => {
-                      setDarkMode(!darkMode);
-                    }}
+                    className={`block h-6 w-6 rounded-full md:hidden ${
+                      darkMode ? "bg-stone-200" : "bg-stone-800"
+                    }`}
+                    id="buttonToggleDark"
+                    title="dark mode toggle"
+                    onClick={() => setDarkMode(!darkMode)}
                   ></button>
                 </li>
               </ul>
@@ -147,81 +151,100 @@ export default function Home() {
         ></div>
       </nav>
       <main
-        className={`transition duration-200 ease-in-out ${
+        className={`flex flex-col max-w-90 sm:max-w-80  md:max-w-70 lg:max-w-65 xl:max-w-60 m-auto md:text-lg transition duration-200 ease-in-out ${
           darkMode
-            ? "bg-stone-800 text-stone-200"
-            : "bg-stone-200 text-stone-900"
+            ? "bg-neutral-900 text-stone-200"
+            : "bg-stone-100 text-stone-700"
         }`}
       >
-        <section id="about">
-          <h1>About</h1>
-          <Image
-            src={"/ProfilePic.png"}
-            alt={"Me"}
-            width={200}
-            height={200}
-          ></Image>
-          <h2>I&apos;m a software developer based out of Dallas.</h2>
-          <p>
-            I graduated University of Illinois Springfield{" "}
-            <em>summa cum laude</em> with a B.S. in Computer Science in May
-            2023.
-          </p>
-          <p>
-            Whether it be in finding creative solutions or acquiring new skills,
-            I love problem solving and the development process.
-          </p>
+        <section id="about" className="pt-14 ">
+          <h1 className="text-5xl mt-10 font-light">About</h1>
+          <h2 className="mt-8 text-2xl">
+            I&apos;m John, a software developer based out of Dallas.
+          </h2>
+          <div className="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-x-10">
+            <div>
+              <p>
+                I graduated University of Illinois Springfield with a{" "}
+                <span className="font-medium">B.S. in Computer Science</span> in
+                May 2023. I attained a strong foundation in object-oriented
+                programming and data structures and algorithms, and earned the
+                distinction of <em>summa cum laude</em>.
+              </p>
+              <Image
+                className="mt-8 select-none rounded-full bg-orange-300 border-8 border-white shadow m-auto"
+                src={"/ProfilePic.png"}
+                alt={"Me"}
+                width={200}
+                height={200}
+              ></Image>
+            </div>
+            <div>
+              <p className="mt-8 lg:mt-0">
+                I excel in the space where creativity and problem-solving
+                intersect. In my current projects, I focus on building fullstack
+                web applications that are performant, responsive, and
+                user-friendly.
+              </p>
+              <figure className="max-w-[14rem] sm:max-w-full m-auto mt-6">
+                <div className="grid grid-cols-2 gap-y-10 sm:grid-cols-4">
+                  <div className="flex flex-col items-center gap-y-1">
+                    <div className="select-none ring-3 ring-inset ring-green-400 rounded-full bg-green-900 h-10 w-10 flex justify-center items-center">
+                      <div className="absolute w-px h-1 m-auto bg-green-900 self-start" />
+                      <p className="text-green-300 text-sm">98</p>
+                    </div>
+                    <p className="text-center text-sm">Performance</p>
+                  </div>
 
-          <p>
-            I design and build web applications that are performant, responsive,
-            and accessible.
-          </p>
-          <p>Lighthouse scores</p>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-y-5 text-center max-w-xs">
-            <div>
-              <div className="m-auto select-none ring-3 ring-inset ring-green-400 rounded-full bg-green-900 h-10 w-10 flex justify-center items-center text-green-300 text-sm">
-                <div className="absolute w-px h-1 m-auto bg-green-900 self-start"></div>
-                <p>98</p>
-              </div>
-              <p>Performance</p>
-            </div>
-            <div>
-              <div className="m-auto select-none ring-3 ring-inset ring-green-400 rounded-full bg-green-900 h-10 w-10 flex justify-center items-center text-green-300 text-sm">
-                <p>100</p>
-              </div>
-              <p>Accessibility</p>
-            </div>
-            <div>
-              <div className="m-auto select-none ring-3 ring-inset ring-green-400 rounded-full bg-green-900 h-10 w-10 flex justify-center items-center text-green-300 text-sm">
-                <p>100</p>
-              </div>
-              <p>Best Practices</p>
-            </div>
-            <div>
-              <div className="m-auto select-none ring-3 ring-inset ring-green-400 rounded-full bg-green-900 h-10 w-10 flex justify-center items-center text-green-300 text-sm">
-                <p>100</p>
-              </div>
-              <p>SEO</p>
+                  <div className="flex flex-col items-center gap-y-1">
+                    <div className="select-none ring-3 ring-inset ring-green-400 rounded-full bg-green-900 h-10 w-10 flex justify-center items-center">
+                      <p className="text-green-300 text-sm">100</p>
+                    </div>
+                    <p className="text-center text-sm">Accessibility</p>
+                  </div>
+
+                  <div className="flex flex-col items-center gap-y-1">
+                    <div className="select-none ring-3 ring-inset ring-green-400 rounded-full bg-green-900 h-10 w-10 flex justify-center items-center">
+                      <p className="text-green-300 text-sm">100</p>
+                    </div>
+                    <p className="text-center text-sm">Best Practices</p>
+                  </div>
+
+                  <div className="flex flex-col items-center gap-y-1">
+                    <div className="select-none ring-3 ring-inset ring-green-400 rounded-full bg-green-900 h-10 w-10 flex justify-center items-center">
+                      <p className="text-green-300 text-sm">100</p>
+                    </div>
+                    <p className="text-center text-sm">SEO</p>
+                  </div>
+                </div>
+                <figcaption className="text-center text-xs mt-2">
+                  Lighthouse scores for johndosselman.com
+                </figcaption>
+              </figure>
+
+              <p className="mt-6">
+                This website was developed in VS Code using{" "}
+                <span className="font-medium">Next.js</span>,{" "}
+                <span className="font-medium">TypeScript</span>, and{" "}
+                <span className="font-medium">Tailwind</span>. Some of the other
+                tools and technologies I&apos;ve worked with include:
+              </p>
+              <ul className="grid grid-cols-3 text-center font-medium mt-6 gap-y-4 max-w-xs m-auto">
+                <li>Java</li>
+                <li>C++</li>
+                <li>Python</li>
+                <li>SQL</li>
+                <li>Firebase</li>
+                <li>React</li>
+                <li>JavaScript</li>
+                <li>CSS3</li>
+                <li>HTML</li>
+              </ul>
             </div>
           </div>
-          <p>
-            This site was developed in VS Code using Next.js, TypeScript, and
-            Tailwind. Some of the other tools and technologies I use include:
-          </p>
-          <ul>
-            <li>Java</li>
-            <li>C++</li>
-            <li>Python</li>
-            <li>SQL</li>
-            <li>Firebase</li>
-            <li>React</li>
-            <li>JavaScript</li>
-            <li>CSS3</li>
-            <li>HTML</li>
-          </ul>
         </section>
-        <section id="projects" className="bg-red-800">
-          <h1>Projects</h1>
+        <section id="projects">
+          <h1 className="text-5xl mt-10 font-light">Projects</h1>
           <h2></h2>
           <h3>FastQR.netlify.app</h3>
           <div className="flex flex-col md:flex-row">
