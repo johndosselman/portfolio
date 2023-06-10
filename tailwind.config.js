@@ -19,6 +19,8 @@ module.exports = {
       height: {
         screen: ["100vh", "100dvh"],
         "screen-60": ["60vh", "60dvh"],
+        "1/20": ["5%"],
+        "9/10": ["90%"],
       },
       width: {
         large: ["1000px"],

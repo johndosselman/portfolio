@@ -1,5 +1,5 @@
 import "./globals.css";
-import { Bitter, Libre_Franklin, Work_Sans } from "next/font/google";
+import { Work_Sans } from "next/font/google";
 
 const work = Work_Sans({
   subsets: ["latin"],
@@ -10,7 +10,7 @@ const work = Work_Sans({
 
 export const metadata = {
   title: "John Dosselman",
-  description: "Software developer portfolio website",
+  description: "Software developer portfolio",
 };
 
 export default function RootLayout({
@@ -20,7 +20,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={` ${work.variable} scroll-smooth`}>
-      <body>{children}</body>
+      <body className="">{children}</body>
     </html>
   );
 }
