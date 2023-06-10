@@ -16,6 +16,15 @@ module.exports = {
         libreFranklin: "var(--libreFranklin)",
         work: "var(--work)",
       },
+      colors: {
+        perrywinkle: "#4e6bfc",
+        mint: "#5ae6a9",
+        brick: "#fc6435",
+      },
+      transitionProperty: {
+        "nav-color": ["background-color, border-color"],
+        width: ["width"],
+      },
       height: {
         screen: ["100vh", "100dvh"],
         "screen-60": ["60vh", "60dvh"],
