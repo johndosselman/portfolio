@@ -2,7 +2,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import profilePic from "/public/profilePic.png";
 
 export default function Home() {
   const [expanded, setExpanded] = useState(false);
@@ -342,15 +341,16 @@ export default function Home() {
                     ? "bg-mint border-neutral-800 shadow-xl"
                     : "bg-mint border-stone-50"
                 }`}
-                src={profilePic}
-                alt={"Me"}
-                width={200}
-                height={200}
+                src={"/profilePic.png"}
+                alt={"Picture of me"}
+                width={250}
+                height={250}
                 onContextMenu={(e) => {
                   e.preventDefault();
                 }}
                 draggable={false}
-              ></Image>
+                priority
+              />
             </div>
             <div>
               <p className="mt-8 lg:mt-0">
@@ -681,7 +681,7 @@ export default function Home() {
         </section>
       </main>
       <footer className="mt-20 text-xs text-center selection:text-white selection:bg-slate-400">
-        6/10/2023
+        6/15/2023
       </footer>
     </div>
   );
