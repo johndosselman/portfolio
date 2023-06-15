@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import profilePic from "public/profilePic.png";
+import profilePic from "profilePic.png";
 
 export default function Home() {
   const [expanded, setExpanded] = useState(false);
