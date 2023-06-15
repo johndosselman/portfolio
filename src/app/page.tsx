@@ -1,27 +1,12 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { comment } from "postcss";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import profilePic from "../../public/profilePic.png";
 
 export default function Home() {
-  const [scrolled, setScrolled] = useState(false);
   const [expanded, setExpanded] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const isScrolled = window.scrollY > 20;
-      setScrolled(isScrolled);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    // Clean up the event listener on component unmount
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
 
   return (
     <div
@@ -357,7 +342,7 @@ export default function Home() {
                     ? "bg-mint border-neutral-800 shadow-xl"
                     : "bg-mint border-stone-50"
                 }`}
-                src={"/ProfilePic.png"}
+                src={profilePic}
                 alt={"Me"}
                 width={200}
                 height={200}
