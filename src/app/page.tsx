@@ -349,7 +349,6 @@ export default function Home() {
                   e.preventDefault();
                 }}
                 draggable={false}
-                priority
               />
             </div>
             <div>
