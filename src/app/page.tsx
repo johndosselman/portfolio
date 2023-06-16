@@ -341,7 +341,7 @@ export default function Home() {
                     ? "bg-mint border-neutral-800 shadow-xl"
                     : "bg-mint border-stone-50"
                 }`}
-                src={"/profilePic.png"}
+                src="/profilePic.png"
                 alt={"Picture of me"}
                 width={250}
                 height={250}
