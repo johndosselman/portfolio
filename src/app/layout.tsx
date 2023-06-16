@@ -12,7 +12,7 @@ export const metadata = {
   title: "John Dosselman",
   description: "Software developer portfolio",
   icons: {
-    icon: "/favicon.png",
+    icon: "/favicon2.ico",
   },
 };
 
